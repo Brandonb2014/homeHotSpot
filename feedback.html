@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Favicon loader -->
+    <LINK REL="SHORTCUT ICON" HREF="http://www.thehomehotspot.com/favicon.png" />
+
+    <title>The Home Hot Spot | Feedback</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="revised" content="TheHomeHotSpot, 3/12/2020">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://kit.fontawesome.com/be9e8f61a4.js" crossorigin="anonymous"></script>
+
+    <style>
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #fff;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #fff;
+  overflow: hidden;
+  border-radius: .25em;
+  cursor: pointer;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #495057;
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #fff;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: orange;
+}
+
+
+      .align-left {
+        text-align: left;
+      }
+
+      #yesNo {
+        -webkit-appearance:none;
+        background:red;
+        border:none;
+        min-width:300px;
+        border-top:.5em solid #eceff1;
+        height:1.5em;
+        position:relative;
+        z-index:1;
+        -webkit-transition: all 250ms ease-in-out;
+        -moz-transition: all 250ms ease-in-out;
+        -ms-transition: all 250ms ease-in-out;
+        -o-transition: all 250ms ease-in-out;
+        transition: all 250ms ease-in-out;
+        box-shadow:rgba(0,0,0,.3) 0 0 5px 2px;
+        outline:none !important;
+        cursor: pointer;
+      }
+
+      #yesNo:before, #yesNo:after {
+        -webkit-transition: all 250ms ease-in-out;
+        -moz-transition: all 250ms ease-in-out;
+        -ms-transition: all 250ms ease-in-out;
+        -o-transition: all 250ms ease-in-out;
+        transition: all 250ms ease-in-out;
+        content:"";
+        position:absolute;
+        font-weight:bold;
+      }
+
+      #yesNo:after {
+        background:#e51c23;
+        bottom:100%;
+        height:.5em;
+        width:40%;
+        left:0%;
+        z-index:0;
+      }
+
+      #yesNo:before {
+        width:36%;
+        left:2%;
+        top:-2px;
+        background:#e84e40;
+        color:#fde0dc;
+        height:2em;
+        z-index:2;
+        text-align:center;
+        content:"No";
+      }
+
+      #yesNo:checked {
+        background:#fff;
+      }
+
+      #yesNo:checked:before {
+        background:#fff;
+        color:#0d5302;
+        left:62%;
+        content:"Yes";
+      }
+
+      #yesNo:checked:after {
+        background:#dcedc8;
+        left:60%;
+      }
+      .wrapper {
+        background-image: url(images/hero_2.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+      }
+      .content-wrapper {
+        padding: 3em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hhs-logo {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+      }
+
+      .equity-logo {
+        width: 100%;
+        max-width: 200px;
+      }
+
+      @media (min-width: 1775px) {
+        .hhs-logo {
+          position: absolute;
+          left: 5px;
+          top: 5px;
+        }
+        .equity-logo {
+          align-self: flex-end;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <div class="content-wrapper">
+        <img src="images/logos/home_hot_spot_logo.png" class="img-fluid hhs-logo" alt="The Home Hot Spot" />
+        <form action="https://formsubmit.co/6bf2ecae53a7daa531c3f2ec918bf3c7" method="POST">
+          <h1 class="text-white text-center" style="padding:0; font-size:4.5rem;">Feedback</h1>
+              
+  
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-10" style="position:relative;">
+          <div class="row form-group">
+  
+            <div class="col-md-6">
+              <label class="text-white" for="FirstName">First Name <span class="text-red">*</span></label>
+              <input type="text" name="FirstName" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="text-white" for="LastName">Last Name <span class="text-red">*</span></label>
+              <input type="text" name="LastName" class="form-control" required>
+            </div>
+  
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-white">Which agent did you work with most? <span class="text-red">*</span></label>
+              <div class="select">
+                <select name="MostUsedAgent" id="slct" required>
+                  <option selected value="" disabled>Choose an option</option>
+                  <option value="Venessa">Venessa</option>
+                  <option value="Macie">Macie</option>
+                  <option value="Mike">Mike</option>
+                </select>
+              </div>
+
+              
+              <!-- <label class="text-white" for="MostUsedAgent">Which agent did you work with most? <span class="text-red">*</span></label><br />
+              <select id="agent" name="MostUsedAgent">
+                <option value="Venessa">Venessa</option>
+                <option value="Macie">Macie</option>
+                <option value="Mike">Mike</option>
+              </select> -->
+            </div>
+          </div>
+  
+          <div class="row form-group">
+            <div class="col-md-6">
+              <div id="full-stars-example">
+                <span class="text-white">Agent's ability to interpret your desire?</span><br />
+                <div class="rating-group">
+                  <input class="rating__input rating__input--none" name="AgentsAbilityToInterpretYourDesire" id="agents-ability-rating-none" value="0" type="radio">
+                  <label aria-label="No rating" class="rating__label" for="agents-ability-rating-none"><i class="rating__icon rating__icon--none fa fa-ban"></i></label>
+                  <label aria-label="1 star" class="rating__label" for="agents-ability-rating-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsAbilityToInterpretYourDesire" id="agents-ability-rating-1" value="1" type="radio">
+                  <label aria-label="2 stars" class="rating__label" for="agents-ability-rating-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsAbilityToInterpretYourDesire" id="agents-ability-rating-2" value="2" type="radio">
+                  <label aria-label="3 stars" class="rating__label" for="agents-ability-rating-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsAbilityToInterpretYourDesire" id="agents-ability-rating-3" value="3" type="radio" checked>
+                  <label aria-label="4 stars" class="rating__label" for="agents-ability-rating-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsAbilityToInterpretYourDesire" id="agents-ability-rating-4" value="4" type="radio">
+                  <label aria-label="5 stars" class="rating__label" for="agents-ability-rating-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsAbilityToInterpretYourDesire" id="agents-ability-rating-5" value="5" type="radio">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div id="full-stars-example">
+                <span class="text-white">Agent's communication throughout the process?</span><br />
+                <div class="rating-group">
+                  <input class="rating__input rating__input--none" name="AgentsCommunicationThroughoutTheProcess" id="agents-communication-rating-none" value="0" type="radio">
+                  <label aria-label="No rating" class="rating__label" for="agents-communication-rating-none"><i class="rating__icon rating__icon--none fa fa-ban"></i></label>
+                  <label aria-label="1 star" class="rating__label" for="agents-communication-rating-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsCommunicationThroughoutTheProcess" id="agents-communication-rating-1" value="1" type="radio">
+                  <label aria-label="2 stars" class="rating__label" for="agents-communication-rating-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsCommunicationThroughoutTheProcess" id="agents-communication-rating-2" value="2" type="radio">
+                  <label aria-label="3 stars" class="rating__label" for="agents-communication-rating-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsCommunicationThroughoutTheProcess" id="agents-communication-rating-3" value="3" type="radio" checked>
+                  <label aria-label="4 stars" class="rating__label" for="agents-communication-rating-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsCommunicationThroughoutTheProcess" id="agents-communication-rating-4" value="4" type="radio">
+                  <label aria-label="5 stars" class="rating__label" for="agents-communication-rating-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="AgentsCommunicationThroughoutTheProcess" id="agents-communication-rating-5" value="5" type="radio">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row form-group">
+            <div class="col-md-6">
+              <div id="full-stars-example">
+                <span class="text-white">How likely are you to work with this team again?</span><br />
+                <div class="rating-group">
+                  <input class="rating__input rating__input--none" name="HowLikelyAreYouToWorkWithThisTeamAgain" id="work-with-rating-none" value="0" type="radio">
+                  <label aria-label="No rating" class="rating__label" for="work-with-rating-none"><i class="rating__icon rating__icon--none fa fa-ban"></i></label>
+                  <label aria-label="1 star" class="rating__label" for="work-with-rating-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyAreYouToWorkWithThisTeamAgain" id="work-with-rating-1" value="1" type="radio">
+                  <label aria-label="2 stars" class="rating__label" for="work-with-rating-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyAreYouToWorkWithThisTeamAgain" id="work-with-rating-2" value="2" type="radio">
+                  <label aria-label="3 stars" class="rating__label" for="work-with-rating-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyAreYouToWorkWithThisTeamAgain" id="work-with-rating-3" value="3" type="radio" checked>
+                  <label aria-label="4 stars" class="rating__label" for="work-with-rating-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyAreYouToWorkWithThisTeamAgain" id="work-with-rating-4" value="4" type="radio">
+                  <label aria-label="5 stars" class="rating__label" for="work-with-rating-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyAreYouToWorkWithThisTeamAgain" id="work-with-rating-5" value="5" type="radio">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div id="full-stars-example">
+                <span class="text-white">How likely would you recommend us?</span><br />
+                <div class="rating-group">
+                  <input class="rating__input rating__input--none" name="HowLikelyWouldYouRecommendUs" id="recommend-rating-none" value="0" type="radio">
+                  <label aria-label="No rating" class="rating__label" for="recommend-rating-none"><i class="rating__icon rating__icon--none fa fa-ban"></i></label>
+                  <label aria-label="1 star" class="rating__label" for="recommend-rating-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyWouldYouRecommendUs" id="recommend-rating-1" value="1" type="radio">
+                  <label aria-label="2 stars" class="rating__label" for="recommend-rating-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyWouldYouRecommendUs" id="recommend-rating-2" value="2" type="radio">
+                  <label aria-label="3 stars" class="rating__label" for="recommend-rating-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyWouldYouRecommendUs" id="recommend-rating-3" value="3" type="radio" checked>
+                  <label aria-label="4 stars" class="rating__label" for="recommend-rating-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyWouldYouRecommendUs" id="recommend-rating-4" value="4" type="radio">
+                  <label aria-label="5 stars" class="rating__label" for="recommend-rating-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="HowLikelyWouldYouRecommendUs" id="recommend-rating-5" value="5" type="radio">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-white" for="OverallExperience">Overall experience: <span class="text-red">*</span></label> 
+              <textarea name="OverallExperience" id="feedback" cols="30" rows="7" class="form-control" placeholder="Please let us know how we did." required></textarea>
+            </div>
+          </div>
+  
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-white" for="AllowThePictureToBeUsed">Do you agree to allow the picture taken during closing to be posted with this review on TheHomeHotSpot.com?</label> 
+              <input id="yesNo" name="AllowThePictureToBeUsed" type="checkbox" value="Yes" checked></input>
+            </div>
+          </div>
+  
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Send Feedback" class="btn btn-primary btn-md text-white">
+            </div>
+          </div>
+  
+          <input type="hidden" name="_subject" value="New Feedback received!">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="http://www.TheHomeHotSpot.com/feedbackThanks.html">
+        </div></div></div>
+        </form>
+
+        <img src="images/logos/equity_logo.png" class="img-fluid equity-logo" alt="Equity" />
+
+      </div>
+    </div>
+  
+  <!-- <div class="site-wrap">
+
+    <div class="site-blocks-cover overlay" data-aos="fade">
+      <img src="images/logos/home_hot_spot_logo.png" width="400" style="position:absolute;left:5px;top:5px;" />
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-8" style="position:relative;">
+						
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img src="images/logos/ut-logo-gray.png" width="180" style="position:absolute;right:5px;bottom:5px;" />
+  </div> -->
+
+  <!-- <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script> -->
+  
+  <!-- <script src="js/main.js"></script> -->
+    
+  </body>
+</html>
