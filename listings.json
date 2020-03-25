@@ -1,4 +1,4 @@
-populateListings([
+[
   {
     "id"         :  "vs8n3e7bw7",
     "image_url"  :  "images/listings/vs8n3e7bw7.jpg",
@@ -44,4 +44,4 @@ populateListings([
     "sqft"       :  "-",
     "acres"      :  "-"
   }
-])
+]

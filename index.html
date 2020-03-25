@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="css/style.css">
     
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <body onload="loadListings()" data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
   <div class="site-wrap">
 
@@ -692,54 +692,65 @@
   
 
   <script>
-    function populateListings(arr) {
-      var activeListings = "",
+    function loadListings() {
+      fetch('listings.json')
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+
+        var activeListings = "",
           previousListings = "";
 
-      for (var i = 0; i < arr.length; i++) {
+        for (var i = 0; i < data.length; i++) {
 
-        var currentListing = "";
-        currentListing += '<div class="col-md-6 col-lg-4">';
-        currentListing += '<div class="prop-details p-3">';
-        currentListing += '<div><strong class="price">$' + arr[i].price + '&nbsp;<span class="' + (arr[i].status == "Active" ? "active" : (arr[i].status == "Under Contract" ? "under-contract" : "")) + '">' + arr[i].status + '</span></strong></div>';
-        currentListing += '<div class="mb-2 d-flex">';
-        currentListing += arr[i].beds + ' beds | ' + arr[i].baths + ' baths<br />';
-        currentListing += arr[i].sqft + ' sqft. | ' + arr[i].acres + ' acres';
-        currentListing += '</div>';
-        currentListing += '<div>';
-        currentListing += (arr[i].street > "" ? arr[i].street + ',<br />' : "");
-        currentListing += (arr[i].city > "" ? arr[i].city + ', ' : "");
-        currentListing += (arr[i].state > "" ? arr[i].state + ' ' : "");
-        currentListing += (arr[i].zip > "" ? arr[i].zip : "");
-        currentListing += '</div>';
-        currentListing += '</div>';
-        currentListing += '<div class="property">';
-        currentListing += '<a href="' + arr[i].nmls_url + '" target="_blank">';
-        currentListing += '<img src="' + arr[i].image_url + '" class="img-fluid" alt="Image"' + (arr[i].street == "123 Your Home Here" ? ' title="List Your Home"' : ' title="View Listing"') + '/>';
-        currentListing += '</a>';
-        currentListing += '</div>';
-        currentListing += '</div>';
-        
-        if (arr[i].status == "Active" || arr[i].status == "Under Contract") {
-          activeListings += currentListing;
-        } else if (arr[i].status == "Sold") {
-          previousListings += currentListing;
-        } else {
-          console.log("The following listing wasn't added to a list because of an incorrect status:", arr[i]);
+          var currentListing = "";
+          currentListing += '<div class="col-md-6 col-lg-4">';
+          currentListing += '<div class="prop-details p-3">';
+          currentListing += '<div><strong class="price">$' + data[i].price + '&nbsp;<span class="' + (data[i].status == "Active" ? "active" : (data[i].status == "Under Contract" ? "under-contract" : "")) + '">' + data[i].status + '</span></strong></div>';
+          currentListing += '<div class="mb-2 d-flex">';
+          currentListing += data[i].beds + ' beds | ' + data[i].baths + ' baths<br />';
+          currentListing += data[i].sqft + ' sqft. | ' + data[i].acres + ' acres';
+          currentListing += '</div>';
+          currentListing += '<div>';
+          currentListing += (data[i].street > "" ? data[i].street + ',<br />' : "");
+          currentListing += (data[i].city > "" ? data[i].city + ', ' : "");
+          currentListing += (data[i].state > "" ? data[i].state + ' ' : "");
+          currentListing += (data[i].zip > "" ? data[i].zip : "");
+          currentListing += '</div>';
+          currentListing += '</div>';
+          currentListing += '<div class="property">';
+          currentListing += '<a href="' + data[i].nmls_url + '" target="_blank">';
+          currentListing += '<img src="' + data[i].image_url + '" class="img-fluid" alt="Image"' + (data[i].street == "123 Your Home Here" ? ' title="List Your Home"' : ' title="View Listing"') + '/>';
+          currentListing += '</a>';
+          currentListing += '</div>';
+          currentListing += '</div>';
+          
+          if (data[i].status == "Active" || data[i].status == "Under Contract") {
+            activeListings += currentListing;
+          } else if (data[i].status == "Sold") {
+            previousListings += currentListing;
+          } else {
+            console.log("The following listing wasn't added to a list because of an incorrect status:", data[i]);
+          }
         }
-      }
 
-      if (activeListings > "") {
-        document.getElementById("activePropteryListings").innerHTML = activeListings;
-        document.getElementById("active-properties-section").style.display = "inherit";
-      }
-      if (previousListings > "") {
-        document.getElementById("previousPropteryListings").innerHTML = previousListings;
-        document.getElementById("previous-properties-section").style.display = "inherit";
-      }
-    }
-    </script>
-  <script src="listings.js"></script>
+        if (activeListings > "") {
+          document.getElementById("activePropteryListings").innerHTML = activeListings;
+          document.getElementById("active-properties-section").style.display = "inherit";
+        }
+        if (previousListings > "") {
+          document.getElementById("previousPropteryListings").innerHTML = previousListings;
+          document.getElementById("previous-properties-section").style.display = "inherit";
+        }
+
+      })
+      .catch(function(error){
+        console.log("error",error);
+      })
+    };
+
+  </script>
     
   </body>
 </html>
