@@ -30,6 +30,21 @@
     "acres"      :  "1.01"
   },
   {
+    "id"         :  "Wc8s3j7ND9",
+    "image_url"  :  "images/listings/Wc8s3j7ND9.jpg",
+    "nmls_url"   :  "https://utahrealestate.com/1667646",
+    "price"      :  "3,000",
+    "status"     :  "Active",
+    "street"     :  "LOT 652 COVE ACRES SUBD .05 AC",
+    "city"       :  "Roosevelt",
+    "state"      :  "UT",
+    "zip"        :  "84066",
+    "beds"       :  "-",
+    "baths"      :  "-",
+    "sqft"       :  "-",
+    "acres"      :  "0.5"
+  },
+  {
     "id"         :  "comingSoon",
     "image_url"  :  "images/listings/comingSoon.png",
     "nmls_url"   :  "#contact-section",
