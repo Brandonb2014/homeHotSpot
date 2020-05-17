@@ -19,7 +19,7 @@
     "image_url"  :  "images/listings/7jud32WbB3.jpg",
     "nmls_url"   :  "https://myextraland.com/wordpress/?product=1-01-acre-wanship-ut-parkview-rd-rockport-est",
     "price"      :  "34,000",
-    "status"     :  "Active",
+    "status"     :  "Sold",
     "street"     :  "Parkview Rd Rockport Estates",
     "city"       :  "Wanship",
     "state"      :  "UT",
@@ -43,6 +43,21 @@
     "baths"      :  "-",
     "sqft"       :  "-",
     "acres"      :  "0.5"
+  },
+  {
+    "id"         :  "nIgw9Nby29",
+    "image_url"  :  "images/listings/nIgw9Nby29.jpg",
+    "nmls_url"   :  "https://www.utahrealestate.com/1674792?actor=95040",
+    "price"      :  "1,300,000",
+    "status"     :  "Active",
+    "street"     :  "1451  North Ridge Rd",
+    "city"       :  "Wanship",
+    "state"      :  "UT",
+    "zip"        :  "84017",
+    "beds"       :  "4",
+    "baths"      :  "4",
+    "sqft"       :  "4200",
+    "acres"      :  "21.1"
   },
   {
     "id"         :  "comingSoon",
