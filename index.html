@@ -103,7 +103,7 @@
       <a href="#active-properties-section" class="smoothscroll arrow-down"><span class="icon-arrow_downward"></span></a>
     </div>
 
-    <div class="site-section bg-light" id="active-properties-section" style="display:none;">
+    <div class="site-section bg-light" id="active-properties-section">
       <div class="container">
         <div class="row mb-5 align-items-center">
           <div class="col-md-7 text-left">
@@ -113,13 +113,14 @@
 
         <div class="prop-details p-3">
           <div id="activePropteryListings" class="row">
+            Loading...
           </div>
         </div>
 
       </div>
     </div>
 
-    <div class="site-section bg-light" id="previous-properties-section" style="display:none;">
+    <div class="site-section bg-light" id="previous-properties-section">
       <div class="container">
         <div class="row mb-5 align-items-center">
           <div class="col-md-7 text-left">
@@ -129,6 +130,7 @@
 
         <div class="prop-details p-3">
           <div id="previousPropteryListings" class="row">
+            Loading...
           </div>
         </div>
 
@@ -144,7 +146,7 @@
         </div>
         <div class="row">
           <div class="col-md-4 text-center">
-            <div class="pr-5">
+            <div class="get-started-section">
               <span class="custom-icon flaticon-coin text-primary"></span><br />
               <button class="btn btn-primary" onclick="determineHomeValue()">Determine your home value.</button>
               <p>Get personalized service with: custom flyers, post in your yard with a flyer box, high traffic marketing, open houses, personal agent.</p>
@@ -152,7 +154,7 @@
           </div>
 
           <div class="col-md-4 text-center">
-            <div class="pr-5">
+            <div class="get-started-section">
               <span class="custom-icon flaticon-house text-primary"></span><br />
               <button class="btn btn-primary" onclick="searchForHomes()">Search for homes.</button>
               <p>Work with a professional who is dedicated and passionate about finding your next Real Estate purchase.</p>
@@ -160,7 +162,7 @@
           </div>
 
           <div class="col-md-4 text-center">
-            <div class="pr-5">
+            <div class="get-started-section">
               <span class="custom-icon flaticon-location text-primary"></span><br />
               <button class="btn btn-primary" onclick="searchForLand()">Search for land.</button>
               <p>Work with a professional dedicated to getting you the best price when buying or selling land.</p>
@@ -648,29 +650,6 @@
 
   </div> <!-- .site-wrap -->
 
-  <script>
-    function determineHomeValue() {
-      location.href = "https://venessa-birschbach.equityuthomesearch.com/fine/real/estate/marketeval"
-    }
-    function searchForHomes() {
-      location.href = "https://venessa-birschbach.equityuthomesearch.com/fine/real/estate/newsearch"
-    }
-    function searchForLand() {
-      location.href = "https://myextraland.com/"
-    }
-
-    document.getElementById('read-more').onclick = function() {
-      var container = document.getElementById('read-more');
-      var text = container.innerHTML;
-
-      if (text == "Read More") {
-        container.innerHTML = "Read Less";
-      } else {
-        container.innerHTML = "Read More";
-      }
-    }
-  </script>
-
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -689,9 +668,40 @@
 	<script src="js/contact_me.js"></script>
   
   <script src="js/main.js"></script>
-  
 
   <script>
+    function determineHomeValue() {
+      location.href = "https://venessa-birschbach.equityuthomesearch.com/fine/real/estate/marketeval"
+    };
+    function searchForHomes() {
+      location.href = "https://venessa-birschbach.equityuthomesearch.com/fine/real/estate/newsearch"
+    };
+    function searchForLand() {
+      location.href = "https://myextraland.com/"
+    };
+
+    document.getElementById('read-more').onclick = function() {
+      var container = document.getElementById('read-more');
+      var text = container.innerHTML;
+
+      if (text == "Read More") {
+        container.innerHTML = "Read Less";
+      } else {
+        container.innerHTML = "Read More";
+      }
+    };
+
+    // var owl = document.getElementsByClassName('owl-carousel');
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items:1,
+        loop:true,
+        margin:10,
+        autoplay:true,
+        autoplayTimeout:10000,
+        autoplayHoverPause:true
+    });
+    
     function loadListings() {
       fetch('listings.json')
       .then(function(response){
@@ -706,8 +716,13 @@
 
           var currentListing = "";
           currentListing += '<div class="col-md-6 col-lg-4">';
+          currentListing += '<div class="property">';
+          currentListing += '<a href="' + data[i].nmls_url + '" target="_blank">';
+          currentListing += '<img src="' + data[i].image_url + '" class="img-fluid" alt="Image"' + (data[i].street == "123 Your Home Here" ? ' title="List Your Home"' : ' title="View Listing"') + '/>';
+          currentListing += '</a>';
+          currentListing += '</div>';
           currentListing += '<div class="prop-details p-3">';
-          currentListing += '<div><strong class="price">$' + data[i].price + '&nbsp;<span class="' + (data[i].status == "Active" ? "active" : (data[i].status == "Under Contract" ? "under-contract" : "")) + '">' + data[i].status + '</span></strong></div>';
+          currentListing += '<div><strong class="price">$' + data[i].price + '&nbsp;<span class="' + (data[i].status == "Active" ? "active-listing" : (data[i].status == "Under Contract" ? "under-contract" : "")) + '">' + data[i].status + '</span></strong></div>';
           currentListing += '<div class="mb-2 d-flex">';
           currentListing += data[i].beds + ' beds | ' + data[i].baths + ' baths<br />';
           currentListing += data[i].sqft + ' sqft. | ' + data[i].acres + ' acres';
@@ -718,11 +733,6 @@
           currentListing += (data[i].state > "" ? data[i].state + ' ' : "");
           currentListing += (data[i].zip > "" ? data[i].zip : "");
           currentListing += '</div>';
-          currentListing += '</div>';
-          currentListing += '<div class="property">';
-          currentListing += '<a href="' + data[i].nmls_url + '" target="_blank">';
-          currentListing += '<img src="' + data[i].image_url + '" class="img-fluid" alt="Image"' + (data[i].street == "123 Your Home Here" ? ' title="List Your Home"' : ' title="View Listing"') + '/>';
-          currentListing += '</a>';
           currentListing += '</div>';
           currentListing += '</div>';
           

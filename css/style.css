@@ -1709,11 +1709,15 @@ h1, h2, h3, h4, h5,
 .under-contract {
   color: #f69314;
 }
-.active {
+.active-listing {
   color: green;
 }
 .text-red {
   color: red;
+}
+
+.get-started-section button {
+  white-space: inherit;
 }
 
 /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
