@@ -52,7 +52,6 @@
       <div class="site-mobile-menu-body"></div>
     </div>
    
-    
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -75,7 +74,6 @@
               </ul>
             </nav>
           </div>
-
 
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
 
@@ -715,9 +713,9 @@
           var currentListing = "";
           currentListing += '<div class="col-md-6 col-lg-4">';
           currentListing += '<div class="property">';
-          currentListing += '<a href="' + data[i].nmls_url + '" target="_blank">';
+          if (data[i].status != "Sold") currentListing += '<a href="' + data[i].nmls_url + '" target="_blank">';
           currentListing += '<img src="' + data[i].image_url + '" class="img-fluid" alt="Image"' + (data[i].street == "123 Your Home Here" ? ' title="List Your Home"' : ' title="View Listing"') + '/>';
-          currentListing += '</a>';
+          if (data[i].status != "Sold") currentListing += '</a>';
           currentListing += '</div>';
           currentListing += '<div class="prop-details p-3">';
           currentListing += '<div><strong class="price">$' + data[i].price + '&nbsp;<span class="' + (data[i].status == "Active" ? "active-listing" : (data[i].status == "Under Contract" ? "under-contract" : "")) + '">' + data[i].status + '</span></strong></div>';
