@@ -75,6 +75,21 @@
     "acres"      :  "0.21"
   },
   {
+    "id"         :  "bO53nPe83g",
+    "image_url"  :  "images/listings/bO53nPe83g.jpg",
+    "nmls_url"   :  "https://www.utahrealestate.com/report/display/report/full/type/3/listno/1687952",
+    "price"      :  "220,000",
+    "status"     :  "Under Contract",
+    "street"     :  "481 Earl St.",
+    "city"       :  "Park City",
+    "state"      :  "UT",
+    "zip"        :  "84098",
+    "beds"       :  "-",
+    "baths"      :  "-",
+    "sqft"       :  "-",
+    "acres"      :  "0.91"
+  },
+  {
     "id"         :  "comingSoon",
     "image_url"  :  "images/listings/comingSoon.png",
     "nmls_url"   :  "#contact-section",
