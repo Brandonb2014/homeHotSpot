@@ -706,15 +706,24 @@
       .then(function(data){
 
         var activeListings = "",
-          previousListings = "";
+          previousListings = "",
+          imgTitle = "";
 
         for (var i = 0; i < data.length; i++) {
+          // Populate the title of the image.
+          if (data[i].street == "123 Your Home Here") {
+            imgTitle = ' title="List Your Home"';
+          } else if (data[i].status == "Active") {
+            imgTitle = ' title="View Listing"';
+          } else {
+            imgTitle = ' tile="SOLD!"';
+          }
 
           var currentListing = "";
           currentListing += '<div class="col-md-6 col-lg-4">';
           currentListing += '<div class="property">';
           if (data[i].status != "Sold") currentListing += '<a href="' + data[i].nmls_url + '" target="_blank">';
-          currentListing += '<img src="' + data[i].image_url + '" class="img-fluid" alt="Image"' + (data[i].street == "123 Your Home Here" ? ' title="List Your Home"' : ' title="View Listing"') + '/>';
+          currentListing += '<img src="' + data[i].image_url + '" class="img-fluid" alt="Image"' + imgTitle + '/>';
           if (data[i].status != "Sold") currentListing += '</a>';
           currentListing += '</div>';
           currentListing += '<div class="prop-details p-3">';
