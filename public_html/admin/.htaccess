@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Protected Site"
+AuthUserFile /home/u741850582/domains/thehomehotspot.com/.htpasswd
+require valid-user
