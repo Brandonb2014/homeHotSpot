@@ -1,0 +1,71 @@
+<body onload="loadListings()">
+  <div id="listings">
+    Loading...
+  </div>
+
+  <script>
+    function loadListings() {
+      fetch('../listings.json')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data){
+
+        var listingList = "";
+
+        for (var i = 0; i < data.length; i++) {
+          var l = '<div style="display:flex;align-items:center;width:1200px;margin:1em auto;border-bottom:1px solid black;">';
+          l += '<span style="padding-right:2em;">';
+          l += '<img src="../' + data[i].image_url + '" class="img-fluid" alt="Image" width="300"/><br>';
+          l += '<label for="homePic">Select a new picture: </label>';
+          l += '<input type="file" id="homePic" name="homePic">';
+          l += '</span>';
+
+          l += '<span>';
+          l += '<input type="hidden" id="id" name="id" value="' + data[i].id + '">'
+          l += '<label for="price">Price: </label>';
+          l += '<input type="text" value="' + data[i].price + '" id="price" name="price" style="width:100px;"><br><br>';
+          l += '<label for="street">Street: </label>';
+          l += '<input type="text" value="' + data[i].street + '" id="street" name="street" style="width:500px;"><br><br>';
+          l += '<label for="city">City: </label>';
+          l += '<input type="text" value="' + data[i].city + '" id="city" name="city">';
+          l += '<label for="state"> State: </label>';
+          l += '<input type="text" value="' + data[i].state + '" id="state" name="state" style="width:25px;">';
+          l += '<label for="zip"> Zip: </label>';
+          l += '<input type="text" value="' + data[i].zip + '" id="zip" name="zip" style="width:55px;"><br><br>';
+          l += '<label for="beds">Beds: </label>';
+          l += '<input type="text" value="' + data[i].beds + '" id="beds" name="beds" style="width:40px;">';
+          l += '<label for="baths"> Baths: </label>';
+          l += '<input type="text" value="' + data[i].baths + '" id="baths" name="baths" style="width:40px;">';
+          l += '<label for="sqft"> SQFT: </label>';
+          l += '<input type="text" value="' + data[i].sqft + '" id="sqft" name="sqft" style="width:50px;">';
+          l += '<label for="acres"> Acres: </label>';
+          l += '<input type="text" value="' + data[i].acres + '" id="acres" name="acres" style="width:50px;"><br><br>';
+          l += '<label for="nmls_url">NMLS URL: </label>';
+          l += '<input type="text" value="' + data[i].nmls_url + '" id="nmls_url" name="nmls_url" style="width:500px;"><br><br>';
+          l += 'Status:';
+          l += '<input type="radio" id="active" name="' + data[i].id + '_status" value="Active"';
+          if (data[i].status == "Active") l += ' checked="checked"';
+          l += '>';
+          l += '<label for="active">Active  </label>';
+          l += '<input type="radio" id="underContract" name="' + data[i].id + '_status" value="Under Conctract"';
+          if (data[i].status == "Under Conctract") l += ' checked="checked"';
+          l += '>';
+          l += '<label for="underContract">Under Contract  </label>';
+          l += '<input type="radio" id="sold" name="' + data[i].id + '_status" value="Sold"';
+          if (data[i].status == "Sold") l += ' checked="checked"';
+          l += '>';
+          l += '<label for="sold">Sold</label>';
+          l += '</span>';
+          l += '</div>';
+          
+          listingList += l;
+        }
+        document.getElementById("listings").innerHTML = listingList;
+      })
+      .catch(function(error){
+        console.log("error",error);
+      })
+    };
+  </script>
+</body>
